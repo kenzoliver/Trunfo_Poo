@@ -14,7 +14,20 @@ public class Game {
         Player p2 = new Player("COM");
 
         for (int i = 0; i < 11; i++) {
+            String choice;
             p1.getCard(i);
+            System.out.printf("Escolha um atributo:");
+            choice = read.nextLine();
+
+            try { 
+                System.out.println(p1.getAtribute(i, choice));
+            }
+
+            catch (Exception e) { 
+                System.out.println("O Usuario digitou algo errado tem que ver como faz pra não deixar passar pra proxima rodada "+ e.getMessage());
+             }
+            p2.getCard(i);
+            Thread.sleep(2000);
         }
     }
 }
