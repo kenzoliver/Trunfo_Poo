@@ -3,21 +3,22 @@ package trunfo;
 import java.util.Scanner;
 
 public class Game {
+    public final static Scanner read = new Scanner(System.in);
 
     public static void main(String[] args) throws InterruptedException {
-        Scanner read = new Scanner(System.in);
 
         int i = 0;
         String player_name;
 
         Player p2 = new Player("COM");
 
-        System.out.println(Colors.ANSI_WHITE_BACKGROUND + Colors.ANSI_GREEN + "          WELCOME TO GAME          " + Colors.ANSI_RESET);
+        System.out.println(Colors.ANSI_WHITE_BACKGROUND + Colors.ANSI_GREEN + "          WELCOME TO GAME          "
+                + Colors.ANSI_RESET);
         System.out.printf("Enter the Player's name: ");
         player_name = read.nextLine();
         Player p1 = new Player(player_name);
 
-        while (i < 10 && p1.getPoints() < 5 && p2.getPoints() < 5) {
+        while (i < 11 && p1.getPoints() < 5 && p2.getPoints() < 5) {
             clearConsole();
             String choice;
             int player, com;
@@ -29,10 +30,10 @@ public class Game {
 
                     // System.out.printf("Choose an attribute:");
                     // choice = read.nextLine();
-                    System.out.println(player_name+" is choosing an attribute...");
+                    System.out.println(player_name + " is choosing an attribute...");
                     choice = p1.getBestAttribute(i);
                     Thread.sleep(5000);
-                    System.out.println(player_name+" Chose:" + choice);
+                    System.out.println(player_name + " Chose:" + choice);
                     player = p1.getAtribute(i, choice);
                     com = p2.getAtribute(i, choice);
                     delaygame();

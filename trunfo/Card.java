@@ -49,12 +49,12 @@ public class Card {
     }
     
     public void getAllAtributes(){ // this function return all atributes of card, will be displayed for the user to choose the attribute he wants
-        System.out.println("Attack:"+this.attack);
-        System.out.println("Defense:"+this.defense);
-        System.out.println("Speed:"+this.speed);
-        System.out.println("Intelligence:"+this.intelligence);
-        System.out.println("Dribble:"+this.dribble);
-        System.out.println("Stamina:"+this.stamina);
+        System.out.println(Colors.ANSI_WHITE_BACKGROUND + Colors.ANSI_BLACK + "Attack............" + this.attack + Colors.ANSI_RESET);
+        System.out.println(Colors.ANSI_WHITE_BACKGROUND + Colors.ANSI_BLACK + "Defense..........." + this.defense + Colors.ANSI_RESET);
+        System.out.println(Colors.ANSI_WHITE_BACKGROUND + Colors.ANSI_BLACK + "Speed............." + this.speed + Colors.ANSI_RESET);
+        System.out.println(Colors.ANSI_WHITE_BACKGROUND + Colors.ANSI_BLACK + "Intelligence......" + this.intelligence + Colors.ANSI_RESET);
+        System.out.println(Colors.ANSI_WHITE_BACKGROUND + Colors.ANSI_BLACK + "Dribble..........." + this.dribble + Colors.ANSI_RESET);
+        System.out.println(Colors.ANSI_WHITE_BACKGROUND + Colors.ANSI_BLACK + "Stamina..........." + this.stamina + Colors.ANSI_RESET);
         System.out.println("");
     }
 }
