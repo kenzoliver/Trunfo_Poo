@@ -36,16 +36,16 @@ public class Game {
                 if (player < com){
                     System.out.println("COM ganhou essa rodada");
                 }
-                else{
+                if(player == com){
                     System.out.println("Empate");
                 }
+                i += 1;
             }
 
             catch (Exception e) { 
-                System.out.println("O Usuario digitou algo errado tem que ver como faz pra não deixar passar pra proxima rodada "+ e.getMessage());
+                System.out.println("Este não é um atributo, digite como está na carta "+ e.getMessage());
              }
-            p2.getCard(i);
-            Thread.sleep(2000);
+            
         }
     }
 }
