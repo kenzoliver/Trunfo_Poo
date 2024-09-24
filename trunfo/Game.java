@@ -11,5 +11,10 @@ public class Game {
         System.out.printf("Informe o nome do Jogador:");
         player_name = read.nextLine();
         Player p1 = new Player(player_name);
+        Player p2 = new Player("COM");
+
+        for (int i = 0; i < 11; i++) {
+            p1.getCard(i);
+        }
     }
 }
