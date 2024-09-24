@@ -12,8 +12,8 @@ public class Game {
 
         Player p2 = new Player("COM");
 
-        System.out.println(Colors.ANSI_YELLOW_BACKGROUND + "          WELCOME TO GAME          " + Colors.ANSI_RESET);
-        System.out.printf("Enter the Player's name:");
+        System.out.println(Colors.ANSI_WHITE_BACKGROUND + Colors.ANSI_GREEN + "          WELCOME TO GAME          " + Colors.ANSI_RESET);
+        System.out.printf("Enter the Player's name: ");
         player_name = read.nextLine();
         Player p1 = new Player(player_name);
 
@@ -48,7 +48,7 @@ public class Game {
                 }
             }
             // COM game
-            p2.getCard(i);
+            p1.getCard(i);
             System.out.println("COM is choosing an attribute...");
             Thread.sleep(5000);
             choice = p2.getBestAttribute(i);
@@ -68,8 +68,10 @@ public class Game {
         if (p1.getPoints() > p2.getPoints()) {
             System.out.println(
                     Colors.ANSI_GREEN_BACKGROUND + Colors.ANSI_BLACK + playerName + " WIN!" + Colors.ANSI_RESET);
-        } else {
+        } else if (p1.getPoints() < p2.getPoints()) {
             System.out.println(Colors.ANSI_RED_BACKGROUND + Colors.ANSI_WHITE + "COM WIN!" + Colors.ANSI_RESET);
+        } else {
+            System.out.println(Colors.ANSI_YELLOW_BACKGROUND + Colors.ANSI_WHITE + "DRAW!" + Colors.ANSI_RESET);
         }
     }
 
@@ -118,7 +120,7 @@ public class Game {
                 System.out.flush();
             }
         } catch (final Exception e) {
-
+            System.out.println(Colors.ANSI_RED_BACKGROUND + "Error!" + Colors.ANSI_RESET);
         }
     }
 }
