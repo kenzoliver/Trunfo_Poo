@@ -22,17 +22,15 @@ public class Player {
         return points;
     }
 
-
     public void getCard(int i) {
         System.out.println(Colors.ANSI_BLUE_BACKGROUND + "Player:" + name + "\n" + Colors.ANSI_RESET);
         System.out.println(Colors.ANSI_GREEN_BACKGROUND + "Carta:" + (i + 1) + Colors.ANSI_RESET + '\n');
         deck[i].getAllAtributes();
     }
 
-    public void getBestAttribute(int i) {
-        System.out.println(deck[i].getBetterAtribute());
+    public String getBestAttribute(int i) {
+        return deck[i].getBetterAtribute();
     }
-
 
     public int getAtribute(int i, String atribute) {
         switch (atribute) {
