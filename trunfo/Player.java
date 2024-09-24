@@ -4,6 +4,7 @@ public class Player {
 
     private String name;
     private Card[] deck = new Card[11];
+    private int points;
 
     public Player(String name) {
         this.name = name;
@@ -13,11 +14,21 @@ public class Player {
         }
     }
 
+    public void addPoint() {
+        points += 1;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+
     public void getCard(int i) {
         System.out.println(Colors.ANSI_BLUE_BACKGROUND + "Player:" + name + "\n" + Colors.ANSI_RESET);
         System.out.println(Colors.ANSI_GREEN_BACKGROUND + "Carta:" + (i + 1) + Colors.ANSI_RESET + '\n');
         deck[i].getAllAtributes();
     }
+
     public void getBestAttribute(int i) {
         System.out.println(deck[i].getBetterAtribute());
     }
