@@ -34,7 +34,19 @@ public class Card {
     } 
     public int getDribble() {
         return dribble;
-    } 
+    }
+    
+    public String getBetterAtribute() {
+        int maxIndex = 0;
+        String[] attributes ={"Attack", "Defense", "Speed", "Intelligence", "Stamina", "Dribble"};
+        int[] values = {attack, defense, speed, intelligence, stamina, dribble};
+        for (int i = 1; i < values.length; i++) {
+            if (values[i] > values[maxIndex]) {
+                maxIndex = i;
+            }
+        }
+        return attributes[maxIndex];
+    }
     
     public void getAllAtributes(){ // this function return all atributes of card, will be displayed for the user to choose the attribute he wants
         System.out.println("Attack:"+this.attack);
