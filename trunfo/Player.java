@@ -6,6 +6,7 @@ public class Player{
 
     public Player(String name)  throws InterruptedException {
         this.name = name;
+        System.out.println(name);
         for (int i = 0; i < 11; i++) {
             deck[i] = new Card(); 
             Thread.sleep(2000);
