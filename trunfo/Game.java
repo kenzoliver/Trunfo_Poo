@@ -24,20 +24,20 @@ public class Game {
             p1.getCard(i);
             System.out.printf("Escolha um atributo:");
             choice = read.nextLine();
-
+            // player game
             try { 
                 player = p1.getAtribute(i, choice);
                 com = p2.getAtribute(i, choice);
                 System.out.println(player);
                 System.out.println(com);
                 if (player > com){
-                    System.out.println(player_name+" ganhou essa rodada");
+                    System.out.println(Colors.ANSI_GREEN_BACKGROUND+ player_name+" ganhou essa rodada"+ Colors.ANSI_RESET +"\n");
                 }
                 if (player < com){
-                    System.out.println("COM ganhou essa rodada");
+                    System.out.println(Colors.ANSI_RED_BACKGROUND+"COM ganhou essa rodada" + Colors.ANSI_RESET +"\n");
                 }
                 if(player == com){
-                    System.out.println("Empate");
+                    System.out.println(Colors.ANSI_YELLOW_BACKGROUND+ "Empate" +Colors.ANSI_RESET +"\n");
                 }
                 i += 1;
             }
@@ -45,6 +45,8 @@ public class Game {
             catch (Exception e) { 
                 System.out.println("Este não é um atributo, digite como está na carta "+ e.getMessage());
              }
+            // COM game
+
             
         }
     }
