@@ -23,8 +23,8 @@ public class Player {
     }
 
     public void getCard(int i) {
-        System.out.println(Colors.ANSI_BLUE_BACKGROUND + "Player:" + name + "\n" + Colors.ANSI_RESET);
-        System.out.println(Colors.ANSI_GREEN_BACKGROUND + "Carta:" + (i + 1) + Colors.ANSI_RESET + '\n');
+        System.out.println(Colors.ANSI_BLUE_BACKGROUND + "Player: " + name + "\n" + Colors.ANSI_RESET);
+        System.out.println(Colors.ANSI_GREEN_BACKGROUND + "Carta: " + (i + 1) + Colors.ANSI_RESET + '\n');
         deck[i].getAllAtributes();
     }
 
