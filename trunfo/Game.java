@@ -37,7 +37,7 @@ public class Game {
                     player = p1.getAtribute(i, choice);
                     com = p2.getAtribute(i, choice);
                     delaygame();
-                    determineRoundWinner(p1, p2, player, com, player_name);
+                    determineRoundWinner(p1, p2, player, com, player_name, i);
                     Thread.sleep(1000);
                     displayScore(p1, p2);
                     i += 1;
@@ -57,7 +57,7 @@ public class Game {
             player = p1.getAtribute(i, choice);
             com = p2.getAtribute(i, choice);
             delaygame();
-            determineRoundWinner(p1, p2, player, com, player_name);
+            determineRoundWinner(p1, p2, player, com, player_name, i);
             Thread.sleep(1000);
             displayScore(p1, p2);
             i += 1;
@@ -76,7 +76,9 @@ public class Game {
         }
     }
 
-    private static void determineRoundWinner(Player p1, Player p2, int playerAttr, int comAttr, String playerName) {
+    private static void determineRoundWinner(Player p1, Player p2, int playerAttr, int comAttr, String playerName, int i) throws InterruptedException {
+        funcionacaraio(p1, p2, i);
+        Thread.sleep(3000);
         if (playerAttr > comAttr) {
             p1.addPoint();
             System.out.println(Colors.ANSI_GREEN_BACKGROUND + playerName + " Win this round" + Colors.ANSI_RESET);
@@ -124,4 +126,22 @@ public class Game {
             System.out.println(Colors.ANSI_RED_BACKGROUND + "Error!" + Colors.ANSI_RESET);
         }
     }
+   public final static void funcionacaraio(Player p1, Player p2, int i) {
+    String[] atributos = { "Attack............", "Defense...........", "Speed.............", "Intelligence......", "Dribble...........", "Stamina..........." };
+    int[] valoresP1 = { p1.deck[i].getAttack(), p1.deck[i].getDefense(), p1.deck[i].getSpeed(), p1.deck[i].getIntelligence(), p1.deck[i].getDribble(), p1.deck[i].getStamina() };
+    int[] valoresP2 = { p2.deck[i].getAttack(), p2.deck[i].getDefense(), p2.deck[i].getSpeed(), p2.deck[i].getIntelligence(), p2.deck[i].getDribble(), p2.deck[i].getStamina() };
+
+    for (int j = 0; j < atributos.length; j++) {
+        System.out.print(Colors.ANSI_WHITE_BACKGROUND + Colors.ANSI_BLACK); 
+        System.out.printf("%-20s %-3d", atributos[j], valoresP1[j]);
+        System.out.print(Colors.ANSI_RESET); 
+        System.out.printf("%-15s", ""); 
+        System.out.print(Colors.ANSI_WHITE_BACKGROUND + Colors.ANSI_BLACK);
+        System.out.printf("%-20s %-3d" + Colors.ANSI_RESET + "\n", atributos[j], valoresP2[j]);
+    }
+
+    System.out.println(""); // Linha em branco
+}
+
+    
 }

@@ -3,7 +3,7 @@ package trunfo;
 public class Player {
 
     private String name;
-    private Card[] deck = new Card[11];
+    public Card[] deck = new Card[11];
     private int points;
 
     public Player(String name) {
