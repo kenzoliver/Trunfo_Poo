@@ -18,7 +18,7 @@ public class Game {
         player_name = read.nextLine();
         Player p1 = new Player(player_name);
 
-        while (i < 11 && p1.getPoints() < 5 && p2.getPoints() < 5) {
+        while (i < 2 && p1.getPoints() < 5 && p2.getPoints() < 5) {
             clearConsole();
             String choice;
             int player, com;
@@ -77,7 +77,7 @@ public class Game {
     }
 
     private static void determineRoundWinner(Player p1, Player p2, int playerAttr, int comAttr, String playerName, int i) throws InterruptedException {
-        funcionacaraio(p1, p2, i);
+        funcionacaraio(p1, p2, i, playerName);
         Thread.sleep(3000);
         if (playerAttr > comAttr) {
             p1.addPoint();
@@ -126,11 +126,12 @@ public class Game {
             System.out.println(Colors.ANSI_RED_BACKGROUND + "Error!" + Colors.ANSI_RESET);
         }
     }
-   public final static void funcionacaraio(Player p1, Player p2, int i) {
+   public final static void funcionacaraio(Player p1, Player p2, int i, String player_name) {
     String[] atributos = { "Attack............", "Defense...........", "Speed.............", "Intelligence......", "Dribble...........", "Stamina..........." };
     int[] valoresP1 = { p1.deck[i].getAttack(), p1.deck[i].getDefense(), p1.deck[i].getSpeed(), p1.deck[i].getIntelligence(), p1.deck[i].getDribble(), p1.deck[i].getStamina() };
     int[] valoresP2 = { p2.deck[i].getAttack(), p2.deck[i].getDefense(), p2.deck[i].getSpeed(), p2.deck[i].getIntelligence(), p2.deck[i].getDribble(), p2.deck[i].getStamina() };
 
+    System.out.printf("\n         " + player_name + "                                    " + "COM\n\n");
     for (int j = 0; j < atributos.length; j++) {
         System.out.print(Colors.ANSI_WHITE_BACKGROUND + Colors.ANSI_BLACK); 
         System.out.printf("%-20s %-3d", atributos[j], valoresP1[j]);
