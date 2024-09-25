@@ -6,13 +6,15 @@ public class Game {
     public final static Scanner read = new Scanner(System.in);
 
     public static void main(String[] args) throws InterruptedException {
-
+        
+        clearConsole();
+        System.out.print(Colors.ANSI_WHITE_BACKGROUND);
         int i = 0;
         String player_name;
 
         Player p2 = new Player("COM");
 
-        System.out.println(Colors.ANSI_WHITE_BACKGROUND + Colors.ANSI_GREEN + "          WELCOME TO GAME          "
+        System.out.println( Colors.ANSI_YELLOW_BACKGROUND + "          WELCOME TO GAME          "
                 + Colors.ANSI_RESET);
         System.out.printf("Enter the Player's name: ");
         player_name = read.nextLine();
@@ -92,7 +94,7 @@ public class Game {
     }
 
     private static void displayScore(Player p1, Player p2) throws InterruptedException {
-        System.out.println(Colors.ANSI_YELLOW_BACKGROUND + "          Placar          " + Colors.ANSI_RESET);
+        System.out.println(Colors.ANSI_YELLOW_BACKGROUND + "          Score          " + Colors.ANSI_RESET);
         System.out.println(Colors.ANSI_GREEN + "Player: " + p1.getPoints() + Colors.ANSI_RESET + "         "
                 + Colors.ANSI_RED + "COM: " + p2.getPoints() + Colors.ANSI_RESET);
         Thread.sleep(2000);
@@ -131,9 +133,9 @@ public class Game {
     int[] valoresP1 = { p1.deck[i].getAttack(), p1.deck[i].getDefense(), p1.deck[i].getSpeed(), p1.deck[i].getIntelligence(), p1.deck[i].getDribble(), p1.deck[i].getStamina() };
     int[] valoresP2 = { p2.deck[i].getAttack(), p2.deck[i].getDefense(), p2.deck[i].getSpeed(), p2.deck[i].getIntelligence(), p2.deck[i].getDribble(), p2.deck[i].getStamina() };
 
-    System.out.printf(Colors.ANSI_BLUE_BACKGROUND + "%-20s" + Colors.ANSI_RESET, player_name);
-    System.out.printf("%18s", "");
-    System.out.printf(Colors.ANSI_RED_BACKGROUND + "%-20s" + Colors.ANSI_RESET + "\n\n", "COM");
+    System.out.printf(Colors.ANSI_BLUE_BACKGROUND + "%-24s" + Colors.ANSI_RESET, player_name);
+    System.out.printf("%15s", "");
+    System.out.printf(Colors.ANSI_RED_BACKGROUND + "%-24s" + Colors.ANSI_RESET + "\n\n", "COM");
     
     // Print all cards attributes
     for (int j = 0; j < atributos.length; j++) {
@@ -145,7 +147,7 @@ public class Game {
         System.out.printf("%-20s %-3d" + Colors.ANSI_RESET + "\n", atributos[j], valoresP2[j]);
     }
 
-    System.out.println(""); // Linha em branco
-}
+    System.out.println(""); // line space
 
+}
 }
