@@ -1,3 +1,9 @@
+<video width="640" height="480" controls>
+  <source src="src/example/example.mp4" type="video/mp4">
+  Seu navegador não suporta o vídeo.
+</video>
+
+
 Welcome to the Trunfo Game project! Please choose your preferred language to view the documentation:
 
 - [Português](#jogo-trunfo---jogo-de-cartas-em-java)
