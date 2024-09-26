@@ -22,6 +22,9 @@ public class Game {
 
         while (i < 10 && p1.getPoints() < 5 && p2.getPoints() < 5) {
             clearConsole();
+            System.out.println(Colors.ANSI_WHITE_BACKGROUND +"New Round..."+ Colors.ANSI_RESET);
+            Thread.sleep(1000);
+            clearConsole();
             String choice;
             int player, com;
             // player game
@@ -135,7 +138,7 @@ public class Game {
 
     System.out.printf(Colors.ANSI_BLUE_BACKGROUND + "%-24s" + Colors.ANSI_RESET, player_name);
     System.out.printf("%15s", "");
-    System.out.printf(Colors.ANSI_RED_BACKGROUND + "%-24s" + Colors.ANSI_RESET + "\n\n", "COM");
+    System.out.printf(Colors.ANSI_RED_BACKGROUND + "%-24s" + Colors.ANSI_RESET + "\n", "COM");
     
     // Print all cards attributes
     for (int j = 0; j < atributos.length; j++) {
