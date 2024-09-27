@@ -23,7 +23,7 @@ public class Player {
     }
 
     public void getCard(int i) {
-        System.out.println(Colors.ANSI_GREEN_BACKGROUND + "Carta: " + (i + 1) + Colors.ANSI_RESET + '\n');
+        System.out.println(Colors.ANSI_GREEN_BACKGROUND + "Card: " + (i + 1) + Colors.ANSI_RESET + '\n');
         System.out.printf(Colors.ANSI_BLUE_BACKGROUND+"%-24s"+"\n" + Colors.ANSI_RESET, name);
         deck[i].getAllAtributes();
     }
@@ -47,7 +47,7 @@ public class Player {
             case "Dribble":
                 return deck[i].getDribble();
             default:
-                throw new IllegalArgumentException("Atributo inválido: " + atribute);
+                throw new IllegalArgumentException("Invalid Attribute: " + atribute);
 
         }
     }

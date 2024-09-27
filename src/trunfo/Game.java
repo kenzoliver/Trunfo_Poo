@@ -6,7 +6,7 @@ public class Game {
     public final static Scanner read = new Scanner(System.in);
 
     public static void main(String[] args) throws InterruptedException {
-        
+
         clearConsole();
         System.out.print(Colors.ANSI_WHITE_BACKGROUND);
         int i = 0;
@@ -14,15 +14,15 @@ public class Game {
 
         Player p2 = new Player("COM");
 
-        System.out.println( Colors.ANSI_YELLOW_BACKGROUND + "          WELCOME TO GAME          "
+        System.out.println(Colors.ANSI_YELLOW_BACKGROUND + "          WELCOME TO GAME          "
                 + Colors.ANSI_RESET);
         System.out.printf("Enter the Player's name: ");
         player_name = read.nextLine();
         Player p1 = new Player(player_name);
 
-        while (i < 10 && p1.getPoints() < 5 && p2.getPoints() < 5) {
+        while (i < 11 && p1.getPoints() < 6 && p2.getPoints() < 6) {
             clearConsole();
-            System.out.println(Colors.ANSI_WHITE_BACKGROUND +"New Round..."+ Colors.ANSI_RESET);
+            System.out.println(Colors.ANSI_WHITE_BACKGROUND + "New Round..." + Colors.ANSI_RESET);
             Thread.sleep(1000);
             clearConsole();
             String choice;
@@ -35,6 +35,12 @@ public class Game {
 
                     System.out.printf("Choose an attribute: ");
                     choice = read.nextLine();
+                    // As linhas 36 - 37 e 44 - 47 tem a mesma função a diferença é que ao inves do
+                    // usuario digitar as cartas automatizamos a função de seleção apenas um pode
+                    // estar rodando por vez
+                    // Lines 36 - 37 and 39 - 42 have the same function, the difference is that instead of
+                    // user enters the letters we automate the selection function only one can
+                    // be running at a time
                     // System.out.println(player_name + " is choosing an attribute...");
                     // choice = p1.getBestAttribute(i);
                     // Thread.sleep(5000);
@@ -81,7 +87,8 @@ public class Game {
         }
     }
 
-    private static void determineRoundWinner(Player p1, Player p2, int playerAttr, int comAttr, String playerName, int i) throws InterruptedException {
+    private static void determineRoundWinner(Player p1, Player p2, int playerAttr, int comAttr, String playerName,
+            int i) throws InterruptedException {
         printCards(p1, p2, i, playerName);
         Thread.sleep(3000);
         if (playerAttr > comAttr) {
@@ -131,26 +138,30 @@ public class Game {
             System.out.println(Colors.ANSI_RED_BACKGROUND + "Error!" + Colors.ANSI_RESET);
         }
     }
-   public final static void printCards(Player p1, Player p2, int i, String player_name) {
-    String[] atributos = { "Attack............", "Defense...........", "Speed.............", "Intelligence......", "Dribble...........", "Stamina..........." };
-    int[] valoresP1 = { p1.deck[i].getAttack(), p1.deck[i].getDefense(), p1.deck[i].getSpeed(), p1.deck[i].getIntelligence(), p1.deck[i].getDribble(), p1.deck[i].getStamina() };
-    int[] valoresP2 = { p2.deck[i].getAttack(), p2.deck[i].getDefense(), p2.deck[i].getSpeed(), p2.deck[i].getIntelligence(), p2.deck[i].getDribble(), p2.deck[i].getStamina() };
 
-    System.out.printf(Colors.ANSI_BLUE_BACKGROUND + "%-24s" + Colors.ANSI_RESET, player_name);
-    System.out.printf("%15s", "");
-    System.out.printf(Colors.ANSI_RED_BACKGROUND + "%-24s" + Colors.ANSI_RESET + "\n", "COM");
-    
-    // Print all cards attributes
-    for (int j = 0; j < atributos.length; j++) {
-        System.out.print(Colors.ANSI_WHITE_BACKGROUND + Colors.ANSI_BLACK); 
-        System.out.printf("%-20s %-3d", atributos[j], valoresP1[j]);
-        System.out.print(Colors.ANSI_RESET); 
-        System.out.printf("%-15s", ""); 
-        System.out.print(Colors.ANSI_WHITE_BACKGROUND + Colors.ANSI_BLACK);
-        System.out.printf("%-20s %-3d" + Colors.ANSI_RESET + "\n", atributos[j], valoresP2[j]);
+    public final static void printCards(Player p1, Player p2, int i, String player_name) {
+        String[] atributos = { "Attack............", "Defense...........", "Speed.............", "Intelligence......",
+                "Dribble...........", "Stamina..........." };
+        int[] valoresP1 = { p1.deck[i].getAttack(), p1.deck[i].getDefense(), p1.deck[i].getSpeed(),
+                p1.deck[i].getIntelligence(), p1.deck[i].getDribble(), p1.deck[i].getStamina() };
+        int[] valoresP2 = { p2.deck[i].getAttack(), p2.deck[i].getDefense(), p2.deck[i].getSpeed(),
+                p2.deck[i].getIntelligence(), p2.deck[i].getDribble(), p2.deck[i].getStamina() };
+
+        System.out.printf(Colors.ANSI_BLUE_BACKGROUND + "%-24s" + Colors.ANSI_RESET, player_name);
+        System.out.printf("%15s", "");
+        System.out.printf(Colors.ANSI_RED_BACKGROUND + "%-24s" + Colors.ANSI_RESET + "\n", "COM");
+
+        // Print all cards attributes
+        for (int j = 0; j < atributos.length; j++) {
+            System.out.print(Colors.ANSI_WHITE_BACKGROUND + Colors.ANSI_BLACK);
+            System.out.printf("%-20s %-3d", atributos[j], valoresP1[j]);
+            System.out.print(Colors.ANSI_RESET);
+            System.out.printf("%-15s", "");
+            System.out.print(Colors.ANSI_WHITE_BACKGROUND + Colors.ANSI_BLACK);
+            System.out.printf("%-20s %-3d" + Colors.ANSI_RESET + "\n", atributos[j], valoresP2[j]);
+        }
+
+        System.out.println(""); // line space
+
     }
-
-    System.out.println(""); // line space
-
-}
 }
